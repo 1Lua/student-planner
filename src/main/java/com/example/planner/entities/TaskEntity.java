@@ -12,10 +12,10 @@ public class TaskEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @OneToOne
+    /*@OneToOne
     @MapsId
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private UserEntity user;*/
 
     @Column(name = "name")
     private String name;
@@ -53,13 +53,13 @@ public class TaskEntity {
         this.id = id;
     }
 
-    public UserEntity getUser() {
+    /*public UserEntity getUser() {
         return user;
     }
 
     public void setUser(UserEntity user) {
         this.user = user;
-    }
+    }*/
 
     public String getName() {
         return name;
