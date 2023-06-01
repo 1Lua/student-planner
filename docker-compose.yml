@@ -1,0 +1,38 @@
+version: '3.7'
+
+networks:
+  docker_network:
+    name: docker_default
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+
+  adminer:
+    image: adminer
+    restart: always
+    container_name: adminer_planner
+    networks:
+      docker_network:
+    environment:
+      ADMINER_PLUGINS: tables-filter tinymce
+      ADMINER_DESIGN: lucas-sandery
+    ports:
+      - 7777:8080
+
+  postgres:
+    image: postgres:13.1
+    restart: always
+    container_name: postgres_planner
+    networks:
+      docker_network:
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./runtime/postgres:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    ports:
+      - 5432:5432
