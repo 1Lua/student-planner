@@ -2,11 +2,16 @@ package com.example.planner.service;
 
 import com.example.planner.dto.event.CreateEventDto;
 import com.example.planner.dto.event.EventDto;
+import com.example.planner.dto.event.EventFilterDto;
 import com.example.planner.entities.EventEntity;
 import com.example.planner.repositories.EventRepository;
 import com.example.planner.utils.EventUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EventService {
@@ -39,6 +44,10 @@ public class EventService {
 
     public void deleteEvent(String id) {
         eventRepository.deleteById(id);
+    }
+
+    public List<EventDto> getEventsByFilter(EventFilterDto filterDto) {
+
     }
 
 }
