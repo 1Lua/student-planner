@@ -12,10 +12,10 @@ public class TaskEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    /*@OneToOne
+    @OneToOne
     @MapsId
     @JoinColumn(name = "user_id")
-    private UserEntity user;*/
+    private User user;
 
     @Column(name = "name")
     private String name;

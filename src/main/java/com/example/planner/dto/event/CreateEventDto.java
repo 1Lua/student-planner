@@ -1,7 +1,5 @@
 package com.example.planner.dto.event;
 
-import com.example.planner.entities.UserEntity;
-
 import java.util.Date;
 
 public class CreateEventDto {
